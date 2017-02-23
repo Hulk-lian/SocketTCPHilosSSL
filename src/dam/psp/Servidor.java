@@ -29,6 +29,14 @@ public class Servidor {
 	public static void main(String[] args) {
 		//arrancar el servidor
 		try {
+			//almacen de claves publicas
+			System.setProperty("javax.net.ssl.keyStore","./cert/AlmacenSRV");
+			System.setProperty("javax.net.ssl.keyStorePassword","12345678");
+			
+			//almacen de clave de confianza
+			System.setProperty("javax.net.ssl.trustStore","./cert/AlmacenSRV");
+			System.setProperty("javax.net.ssl.trustStorePassword","12345678");
+			
 			new Servidor();
 		} catch (IOException e) {
 			e.printStackTrace();
