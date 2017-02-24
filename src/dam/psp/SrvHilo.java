@@ -31,7 +31,9 @@ public class SrvHilo extends Thread{
 			PrintWriter pr= new PrintWriter(bo);
 			
 			byte[] mensSerializado= mensajeRecibido.getBytes("utf-8");
-			MessageDigest sha= MessageDigest.getInstance("SHA1");
+			MessageDigest sha= MessageDigest.getInstance("SHA-256");
+			
+			byte[] hash=sha.digest(mensajeRecibido.getBytes("UTF-8"));
 			
 			pr.println(sha.digest(mensSerializado));
 			pr.flush();
